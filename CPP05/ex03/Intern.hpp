@@ -12,6 +12,8 @@ class Intern {
 public:
     Intern();
     ~Intern();
+    Intern(Intern const& src);
+    Intern& operator=(Intern const& src);
 
     Form* createShrubbery(const std::string name);
     Form* createRobotomy(const std::string name);

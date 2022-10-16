@@ -67,12 +67,9 @@ const char  *Bureaucrat::GradeTooHighException::what() const throw()
     return ("Grade to Low");
 }
 
-void Bureaucrat::executeForm(Form const & form)
+void Bureaucrat::executeForm(Form const& form)
 {
-    if(form.getSigned())
-        std::cout << "Bureaucrat " << this->name << " executed " << form.getName() << std::endl;
-    else
-        throw Form::IsNotSignedException();
+    form.execute(*this);
 }
 
 void Bureaucrat::signForm(Form& form)

@@ -4,6 +4,17 @@ Intern::Intern(){}
 
 Intern::~Intern(){}
 
+Intern::Intern(Intern const& src)
+{
+    *this = src;
+}
+
+Intern& Intern::operator=(Intern const& src)
+{
+    (void) src;
+    return (*this);
+}
+
 Form* Intern::createShrubbery(const std::string name)
 { return (new ShrubberyCreationForm(name));}
 

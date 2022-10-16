@@ -66,6 +66,11 @@ void          Form::beSigned(const Bureaucrat& bureaucrat)
         throw Form::GradeTooLowException();
 }
 
+void Form::execute(const Bureaucrat& bureaucrat) const
+{
+    std::cout << bureaucrat.getName() << " attempting to execute form " << this->name << std::endl;
+}
+
 std::ostream& operator<< (std::ostream& out, const Form& obj)
 {
     out << obj.getName() << ", " << obj.getGradeSing() << ", "

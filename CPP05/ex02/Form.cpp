@@ -53,11 +53,6 @@ const char* Form::GradeTooLowException::what() const throw()
     return ("Grade to low");
 }
 
-const char* Form::IsNotSignedException::what() const throw()
-{
-    return ("Is not signed");
-}
-
 void          Form::beSigned(const Bureaucrat& bureaucrat)
 {
     if (bureaucrat.getGrade() < this->gradeSing)

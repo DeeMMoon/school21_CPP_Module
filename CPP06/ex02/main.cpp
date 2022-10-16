@@ -1,17 +1,21 @@
 #include "Base.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
+#include <cstdlib>
 #include <iostream>
 
 Base* generate(void)
 {
+    srand (time(NULL));
     int randNum = (rand() % 3) + 1;
     if (randNum == 1)
         return new A();
-    else if (randNum == 2);
+    if (randNum == 2)
         return  new B();
-    else if (randNum == 3)
+    if (randNum == 3)
         return new C();
     return (new A());
-    }
 }
 
 void identify(Base* p)
@@ -24,7 +28,7 @@ void identify(Base* p)
         std::cout<< "B";
     else if(dynamic_cast<C *>(p) != NULL)
         std::cout<< "C";
-    std::endl;
+    std::cout<<std::endl;
 
 }
 
@@ -33,7 +37,7 @@ void identify(Base& p)
     try
     {
         Base& base = dynamic_cast<A&>(p);
-        void(base);
+        //void(base);
         std::cout<< "identify (Base& p) p as class - A"<< std::endl;
     }
     catch(const std::exception& e)
@@ -43,7 +47,7 @@ void identify(Base& p)
     try
     {
         Base& base = dynamic_cast<B&>(p);
-        void(base);
+        //void(base);
         std::cout<< "identify (Base& p) p as class - B"<< std::endl;
     }
     catch(const std::exception& e)
@@ -53,7 +57,7 @@ void identify(Base& p)
     try
     {
         Base& base = dynamic_cast<C&>(p);
-        void(base);
+        //void(base);
         std::cout<< "identify (Base& p) p as class - C"<< std::endl;
     }
     catch(const std::exception& e)
@@ -64,12 +68,9 @@ void identify(Base& p)
 
 int main(void)
 {
-    srand(time(NULL))
-    {
         Base* base = generate();
         identify(base);
         identify(*base);
         delete(base);
-    }
     return(0);
 }
